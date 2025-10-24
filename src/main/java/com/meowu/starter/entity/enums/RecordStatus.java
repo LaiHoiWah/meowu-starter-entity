@@ -1,5 +1,6 @@
 package com.meowu.starter.entity.enums;
 
+import com.meowu.starter.entity.utils.StringEnumReflectUtils;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public enum RecordStatus{
+public enum RecordStatus implements StringEnum<RecordStatus>{
 
     ACTIVE("A", "ACTIVE"),
 
@@ -23,15 +24,6 @@ public enum RecordStatus{
     private final String description;
 
     public static RecordStatus getByCode(String code){
-        if(StringUtils.isNotBlank(code)){
-            for(RecordStatus status : RecordStatus.values()){
-                if(status.getCode().equals(code)){
-                    return status;
-                }
-            }
-            throw new IllegalArgumentException("No matched with code: " + code);
-        }else{
-            return null;
-        }
+        return StringEnumReflectUtils.getByCode(RecordStatus.class, code);
     }
 }
