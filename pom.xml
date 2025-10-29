@@ -17,6 +17,7 @@
     </parent>
 
     <dependencies>
+        <!-- compile -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
