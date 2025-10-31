@@ -7,22 +7,22 @@ import lombok.Getter;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public enum Locale implements StringEnum<Locale>{
+public enum AccountStatus implements StringEnum<AccountStatus>{
 
-    ZH_CN("zh-CN", "中文"),
+    ACTIVE("A", "ACTIVE"),
 
-    ZH_TW("zh-TW", "繁體（台灣）"),
+    INACTIVE("I", "INACTIVE"),
 
-    ZH_HK("zh-HK", "繁體（香港）"),
+    FROZEN("F", "FROZEN"),
 
-    EN_US("en-US", "ENGLISH"),
+    DELETE("D", "DELETE"),
 
     ;
 
     private final String code;
     private final String description;
 
-    public static Locale getByCode(String code){
-        return StringEnumReflectUtils.getByCode(Locale.class, code);
+    public static AccountStatus getByCode(String code){
+        return StringEnumReflectUtils.getByCode(AccountStatus.class, code);
     }
 }
